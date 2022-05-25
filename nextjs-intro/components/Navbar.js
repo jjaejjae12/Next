@@ -12,7 +12,7 @@ export default function NavBar(prop) {
             <Link href="/about">
                 <a className={router.pathname === "/about" ? "active" : ""}>About</a>
             </Link>
-            <style jsx>{`
+            <style jsx global>{`
             //해당 컴폰언트로 스타일 한정
                 nav {
                     background-color: skyblue;
@@ -20,6 +20,9 @@ export default function NavBar(prop) {
                 a {
                     text-decoration: none;
                     /* color: red; */
+                }
+                h1 {
+                    color: red;
                 }
                 .active {
                     color:${prop.color ?  prop.color : "yellow"};
