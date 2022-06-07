@@ -1,35 +1,47 @@
-import Link from "next/link"
+import Link from "next/link";
 import { useRouter } from "next/router";
-import styles from './NavNar.module.css';
+import styles from "./NavNar.module.css";
 
 export default function NavBar(prop) {
-    const router = useRouter();
-    return (
-        <nav>
-            <Link href="/">
-                <a className={router.pathname === "/" ? "active" : ""}>Home</a>
-            </Link>
-            <Link href="/about">
-                <a className={router.pathname === "/about" ? "active" : ""}>About</a>
-            </Link>
-            <style jsx global>{`
-            //해당 컴폰언트로 스타일 한정
-                nav {
-                    background-color: skyblue;
-                }
-                a {
-                    text-decoration: none;
-                    /* color: red; */
-                }
-                h1 {
-                    color: red;
-                }
-                .active {
-                    color:${prop.color ?  prop.color : "yellow"};
-                }
-            `}</style>
-            {/* <a href="/">Home</a> */}
-            {/* <a href="/about">About</a> */}
-        </nav>
-    )
+  const router = useRouter();
+  return (
+    <nav>
+      <img src="/vercel.svg" />
+      <div>
+        <Link href="/">
+          <a className={router.pathname === "/" ? "active" : ""}>Home</a>
+        </Link>
+        <Link href="/about">
+          <a className={router.pathname === "/about" ? "active" : ""}>About</a>
+        </Link>
+      </div>
+      <style jsx>{`
+        nav {
+          display: flex;
+          gap: 10px;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 20px;
+          padding-bottom: 10px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        }
+        img {
+          max-width: 100px;
+          margin-bottom: 5px;
+        }
+        nav a {
+          font-weight: 600;
+          font-size: 18px;
+        }
+        .active {
+          color: tomato;
+        }
+        nav div {
+          display: flex;
+          gap: 10px;
+        }
+      `}</style>
+    </nav>
+  );
 }

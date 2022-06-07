@@ -1,17 +1,18 @@
-import { useState } from "react";  
+import { useState } from "react";
 import NavBar from "../components/Navbar";
+import Head from "next/head";
+import Seo from "../components/Seo";
+import { useEffect } from "react/cjs/react.production.min";
+
+const API_KEY = "63b2b1c1f8886b5eda4a8edafdc64504";
 
 export default function Home() {
-    const [counter,setCounter] = useState(0)
-    return (
-        <div>
-            <h1>Hello{counter}</h1>
-            <style jsx global>{`
-                h1 {
-                    border:1px solid black;
-                }
-            `}</style>
-            <button onClick={() => setCounter(prev => prev + 1)}>Click me</button>
-        </div>
-    );
+  const [movies, setMovies] = useState([]);
+  useEffect(() => {}, []);
+  return (
+    <div>
+      <Seo title="Home" />
+      <button onClick={() => setCounter((prev) => prev + 1)}>Click me</button>
+    </div>
+  );
 }
